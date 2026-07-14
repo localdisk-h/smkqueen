@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" role="img" aria-label="Placeholder galeri sekolah">
+  <rect width="720" height="480" fill="#063c31"/>
+  <circle cx="360" cy="240" r="82" fill="#fff" opacity=".14"/>
+  <circle cx="360" cy="240" r="55" fill="#d4a72c"/>
+  <path d="m343 206 52 34-52 34v-68Z" fill="#063c31"/>
+  <circle cx="104" cy="92" r="34" fill="#d4a72c" opacity=".32"/>
+  <circle cx="640" cy="390" r="60" fill="#0b5d4b" opacity=".8"/>
+</svg>

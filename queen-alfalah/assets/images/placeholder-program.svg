@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" role="img" aria-label="Placeholder program keahlian">
+  <rect width="900" height="620" fill="#e4f2ec"/>
+  <circle cx="450" cy="290" r="190" fill="#0b5d4b" opacity=".12"/>
+  <rect x="258" y="176" width="384" height="256" rx="24" fill="#063c31"/>
+  <rect x="282" y="200" width="336" height="194" rx="12" fill="#d9eee6"/>
+  <path d="m355 337 66-72 52 50 41-43 68 65" fill="none" stroke="#0b5d4b" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="520" cy="250" r="25" fill="#d4a72c"/>
+  <path d="M382 432h136l34 46H348l34-46Z" fill="#d4a72c"/>
+</svg>
+

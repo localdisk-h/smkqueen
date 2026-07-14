@@ -1,0 +1,56 @@
+/**
+ * Right-to-left refinements for Queen Al-Falah.
+ * Most layout rules use logical properties and require no override.
+ */
+
+body {
+  direction: rtl;
+  unicode-bidi: embed;
+}
+
+.site-nav .current-menu-item > a,
+.site-nav .current_page_item > a {
+  box-shadow: inset -3px 0 var(--qa-gold-500);
+}
+
+.submenu-toggle,
+.dropdown-toggle {
+  right: auto;
+  left: 0.25rem;
+}
+
+.site-nav .menu-item-has-children > a {
+  padding-right: 0.8rem;
+  padding-left: 2.75rem;
+}
+
+.news-card__category,
+.program-card__label {
+  right: 0.8rem;
+  left: auto;
+}
+
+.notice,
+.alert {
+  border-right: 0.3rem solid var(--qa-emerald-600);
+  border-left: 0;
+  border-radius: var(--qa-radius-sm) 0 0 var(--qa-radius-sm);
+}
+
+@media (min-width: 48rem) {
+  .site-nav .current-menu-item > a,
+  .site-nav .current_page_item > a {
+    box-shadow: inset 0 -3px var(--qa-gold-500);
+  }
+
+  .site-nav .sub-menu {
+    right: 0;
+    left: auto;
+  }
+
+  .site-nav .sub-menu .sub-menu {
+    right: calc(100% + 0.4rem);
+    left: auto;
+  }
+}
+

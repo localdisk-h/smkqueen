@@ -1,0 +1,180 @@
+/* Editor parity for the Queen Al-Falah front-end theme. */
+
+:root {
+  --qa-editor-emerald-950: #052e26;
+  --qa-editor-emerald-800: #075a47;
+  --qa-editor-emerald-700: #08725a;
+  --qa-editor-emerald-50: #f0faf6;
+  --qa-editor-gold-500: #d29b2c;
+  --qa-editor-gold-100: #fbf0cf;
+  --qa-editor-cream: #fffcf5;
+  --qa-editor-ink: #17231f;
+  --qa-editor-muted: #5a6863;
+  --qa-editor-border: #d8e0dc;
+}
+
+.editor-styles-wrapper {
+  background: var(--qa-editor-cream);
+  color: var(--qa-editor-ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.editor-styles-wrapper .wp-block-post-title,
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h5,
+.editor-styles-wrapper h6 {
+  color: var(--qa-editor-emerald-950);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.editor-styles-wrapper .wp-block-post-title {
+  font-size: clamp(2.25rem, 7vw, 4rem);
+}
+
+.editor-styles-wrapper h1 {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+}
+
+.editor-styles-wrapper h2 {
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
+}
+
+.editor-styles-wrapper h3 {
+  font-size: clamp(1.3rem, 3vw, 1.65rem);
+}
+
+.editor-styles-wrapper p,
+.editor-styles-wrapper ul,
+.editor-styles-wrapper ol {
+  margin-bottom: 1.25rem;
+}
+
+.editor-styles-wrapper a {
+  color: var(--qa-editor-emerald-700);
+  font-weight: 650;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
+.editor-styles-wrapper blockquote,
+.editor-styles-wrapper .wp-block-quote {
+  margin-block: 2rem;
+  padding: 1.1rem 1.25rem;
+  border-left: 0.3rem solid var(--qa-editor-gold-500);
+  border-radius: 0 0.9rem 0.9rem 0;
+  background: var(--qa-editor-gold-100);
+  color: var(--qa-editor-emerald-950);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.18rem;
+}
+
+.editor-styles-wrapper blockquote p:last-child,
+.editor-styles-wrapper .wp-block-quote p:last-child {
+  margin-bottom: 0;
+}
+
+.editor-styles-wrapper .wp-block-pullquote {
+  border-top: 4px solid var(--qa-editor-gold-500);
+  border-bottom: 4px solid var(--qa-editor-gold-500);
+  color: var(--qa-editor-emerald-950);
+}
+
+.editor-styles-wrapper .wp-block-button__link {
+  padding: 0.72rem 1.15rem;
+  border: 2px solid var(--qa-editor-emerald-700);
+  border-radius: 999px;
+  background: var(--qa-editor-emerald-700);
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.editor-styles-wrapper .is-style-outline > .wp-block-button__link {
+  background: transparent;
+  color: var(--qa-editor-emerald-800);
+}
+
+.editor-styles-wrapper .wp-block-image img,
+.editor-styles-wrapper .wp-block-gallery img,
+.editor-styles-wrapper .wp-block-cover,
+.editor-styles-wrapper .wp-block-group.has-background {
+  border-radius: 0.9rem;
+}
+
+.editor-styles-wrapper figcaption {
+  color: var(--qa-editor-muted);
+  font-size: 0.8rem;
+}
+
+.editor-styles-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.editor-styles-wrapper th,
+.editor-styles-wrapper td {
+  padding: 0.8rem;
+  border: 1px solid var(--qa-editor-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.editor-styles-wrapper th {
+  background: var(--qa-editor-emerald-50);
+  color: var(--qa-editor-emerald-950);
+}
+
+.editor-styles-wrapper code,
+.editor-styles-wrapper pre,
+.editor-styles-wrapper .wp-block-code {
+  border-radius: 0.5rem;
+  background: #edf2ef;
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+}
+
+.editor-styles-wrapper code {
+  padding: 0.12rem 0.3rem;
+}
+
+.editor-styles-wrapper pre,
+.editor-styles-wrapper .wp-block-code {
+  padding: 1rem;
+}
+
+.editor-styles-wrapper .has-emerald-background-color {
+  background-color: var(--qa-editor-emerald-800) !important;
+}
+
+.editor-styles-wrapper .has-gold-background-color {
+  background-color: var(--qa-editor-gold-500) !important;
+}
+
+.editor-styles-wrapper .has-cream-background-color {
+  background-color: #fbf6ea !important;
+}
+
+.editor-styles-wrapper .has-emerald-color {
+  color: var(--qa-editor-emerald-800) !important;
+}
+
+.editor-styles-wrapper .has-gold-color {
+  color: #b98218 !important;
+}
+
+.editor-styles-wrapper .wp-block-separator {
+  border-color: var(--qa-editor-border);
+}
+
+.editor-styles-wrapper :focus-visible {
+  outline: 3px solid var(--qa-editor-gold-500);
+  outline-offset: 3px;
+}

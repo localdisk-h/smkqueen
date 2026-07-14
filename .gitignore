@@ -1,0 +1,32 @@
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+
+# Runtime, dependencies, and build output
+node_modules/
+vendor/
+dist/
+build/
+*.log
+*.tmp
+
+# WordPress environment and secrets
+wp-config.php
+.env
+.env.*
+!.env.example
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+
+# Local archives and backups
+*.zip
+*.tar
+*.tar.gz
+*.sql
+*.sqlite
+*.bak
+

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" role="img" aria-label="Placeholder berita Queen Al-Falah">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e4f2ec"/><stop offset="1" stop-color="#f6f1e6"/></linearGradient></defs>
+  <rect width="720" height="480" fill="url(#g)"/>
+  <circle cx="590" cy="94" r="80" fill="#d4a72c" opacity=".24"/>
+  <path d="M0 350c165-82 278-70 398-10 95 47 202 52 322 9v131H0V350Z" fill="#0b5d4b" opacity=".88"/>
+  <path d="m250 305 110-74 110 74v76H250v-76Z" fill="#fff"/>
+  <path d="m233 307 127-88 127 88-12 18-115-77-115 77-12-18Z" fill="#063c31"/>
+  <rect x="331" y="316" width="58" height="65" fill="#d4a72c"/>
+</svg>
+
