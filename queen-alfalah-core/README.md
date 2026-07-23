@@ -2,7 +2,7 @@
 
 Companion plugin resmi untuk tema **Queen Al-Falah**. Plugin memisahkan model konten dan data sekolah dari lapisan tampilan, sehingga program keahlian, pengumuman, agenda, dan data kelembagaan tetap tersedia ketika tema diganti.
 
-Versi: **1.0.0**  
+Versi: **1.3.0**
 WordPress minimum: **6.2**  
 PHP minimum: **7.4**  
 Lisensi: **GPL-2.0-or-later**
@@ -17,6 +17,9 @@ Lisensi: **GPL-2.0-or-later**
 - Arsip agenda terurut berdasarkan tanggal mulai.
 - Arsip pengumuman publik menyembunyikan item kedaluwarsa tanpa mengubah daftar admin.
 - Importer demo satu klik yang aman, idempoten, dan tidak menimpa konten pengguna.
+- Portal Pusat Media privat dengan peran Waka Sekolah, Guru, dan Tenaga Kependidikan.
+- Folder Google Drive pribadi yang dibuat otomatis berdasarkan username.
+- Unggah dan unduh terotorisasi pada folder pribadi beserta subfoldernya.
 - Data dipertahankan saat plugin dihapus.
 
 ## Instalasi
@@ -119,7 +122,46 @@ Data operasional, nama personal, jadwal, pembina, mitra, lowongan, statistik, at
 - Settings API melakukan sanitasi sesuai tipe data.
 - Importer memerlukan kemampuan pengaturan, nonce, dan request POST.
 - URL dibatasi ke protokol HTTP/HTTPS.
+- Password dikelola oleh autentikasi WordPress; plugin tidak menyimpan password tambahan.
+- Akun khusus portal diarahkan ke Pusat Media dan dibatasi dari halaman administrasi WordPress.
+- Pusat Media memeriksa capability, nonce unggahan/unduhan, MIME, ukuran, dan hubungan folder Drive pada setiap permintaan file.
+- Kredensial OAuth atau service account dibaca dari `wp-config.php`/berkas di luar web root dan tidak disimpan pada database/plugin.
 - Jangan memasukkan NIK, NISN, alamat rumah, nomor pribadi, data kesehatan, atau foto tanpa dasar izin yang sesuai.
+
+## Konfigurasi Pusat Media dan Google Drive
+
+Folder induk yang telah disiapkan:
+
+`https://drive.google.com/drive/folders/1N0w6Y9e2p5IYn_ipLLcR7hG2ApDT2KK9`
+
+Untuk My Drive, gunakan OAuth akun pemilik folder agar file hasil unggahan memakai kuota akun sekolah. Tambahkan secret berikut ke `wp-config.php` dan jangan commit nilainya:
+
+```php
+define( 'QAF_GOOGLE_DRIVE_ROOT_FOLDER_ID', '1N0w6Y9e2p5IYn_ipLLcR7hG2ApDT2KK9' );
+define( 'QAF_GOOGLE_DRIVE_OAUTH_CLIENT_ID', 'CLIENT_ID.apps.googleusercontent.com' );
+define( 'QAF_GOOGLE_DRIVE_OAUTH_CLIENT_SECRET', 'CLIENT_SECRET' );
+define( 'QAF_GOOGLE_DRIVE_OAUTH_REFRESH_TOKEN', 'REFRESH_TOKEN' );
+```
+
+Sebagai alternatif untuk Google Workspace Shared Drive, simpan JSON service account di luar web root, tambahkan service account sebagai **Content manager**, lalu gunakan:
+
+```php
+define( 'QAF_GOOGLE_DRIVE_ROOT_FOLDER_ID', 'ID_FOLDER_INDUK' );
+define( 'QAF_GOOGLE_DRIVE_CREDENTIALS_PATH', '/lokasi-privat/service-account.json' );
+```
+
+Setelah konfigurasi:
+
+1. Buat satu akun WordPress untuk setiap personel melalui **Pengguna > Tambah Baru**.
+2. Pilih peran Waka Sekolah, Guru, atau Tenaga Kependidikan.
+3. Isi Unit/Jabatan; biarkan ID Folder Google Drive kosong untuk provisioning otomatis.
+4. Saat pengguna pertama kali membuka `/pusat-media/`, plugin membuat folder `Nama (@username)` di bawah kategori Waka/Guru/Tendik.
+
+Pengguna hanya dapat membuka, mengunggah, dan mengunduh file pada folder pribadinya beserta subfolder turunannya. Dokumen Google diekspor ke PDF/XLSX/PPTX, sedangkan file biasa diunduh melalui proxy WordPress setelah izin diverifikasi. Unggahan default dibatasi hingga nilai terendah antara batas PHP dan 25 MB.
+
+Panduan lengkap tersedia di [`GOOGLE-DRIVE-SETUP.md`](GOOGLE-DRIVE-SETUP.md).
+
+Tidak ada akun atau password contoh yang dibuat otomatis. Administrator harus membuat username unik dan password kuat untuk setiap personel agar kredensial tidak dipakai bersama.
 
 ## Penghapusan plugin
 
@@ -152,8 +194,20 @@ find queen-alfalah-core -name '*.php' -exec php -l {} \;
 
 ## Changelog
 
+### 1.3.0 — 2026-07-23
+
+- Mengganti role portal menjadi Waka, Guru, dan Tenaga Kependidikan.
+- Menambahkan provisioning folder Drive otomatis per username.
+- Menambahkan unggahan terotorisasi dengan validasi MIME, ukuran, nonce, capability, dan batas folder.
+- Menambahkan autentikasi OAuth untuk My Drive serta dukungan service account untuk Shared Drive.
+
+### 1.2.0 — 2026-07-18
+
+- Menambahkan Pusat Media privat berbasis akun WordPress.
+- Menambahkan tiga peran sekolah dan pemetaan folder Drive per pengguna.
+- Menambahkan klien Google Drive read-only berbasis service account dan proxy unduhan terotorisasi.
+
 ### 1.0.0 — 2026-07-13
 
 - Rilis awal model konten, meta, taksonomi, pengaturan, admin list, filter arsip, dan importer idempoten.
 - Menambahkan dokumentasi keamanan, privasi, serta kebijakan retensi data.
-
