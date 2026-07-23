@@ -2,7 +2,7 @@
 Contributors: smkqueenalfalah
 Requires at least: 6.2
 Requires PHP: 7.4
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: education, school, custom-post-type, gutenberg, rest-api
@@ -20,6 +20,8 @@ Queen Al-Falah Core menjaga data sekolah tetap terpisah dari tema. Plugin menyed
 * Agenda publik terurut berdasarkan tanggal mulai.
 * Penyaringan pengumuman kedaluwarsa hanya pada arsip publik.
 * Penyiapan demo satu klik yang idempoten dan tidak menimpa data pengguna.
+* Pusat Media privat dengan akun Waka, Tim Media, dan Bidang Sekolah.
+* Pembatasan folder Google Drive baca-saja per pengguna.
 * Retensi seluruh data saat plugin dihapus.
 
 Tema Queen Al-Falah direkomendasikan, tetapi konten tetap disimpan menggunakan API WordPress standar.
@@ -66,6 +68,11 @@ Tidak. Plugin hanya menyimpan dan menampilkan informasi atau tautan. Sistem pend
 Hindari NIK, NISN, alamat rumah, nomor pribadi, data kesehatan, dokumen sensitif, serta foto tanpa dasar izin yang sesuai.
 
 == Changelog ==
+
+= 1.2.0 - 2026-07-18 =
+
+* Menambahkan Pusat Media privat berbasis login WordPress.
+* Menambahkan peran sekolah, pemetaan folder Drive per akun, dan proxy unduhan terotorisasi.
 
 = 1.1.0 - 2026-07-13 =
 

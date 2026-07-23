@@ -623,6 +623,10 @@ body:not(.has-sticky-header) .site-header {
   box-shadow: inset 0 1px var(--qa-border);
 }
 
+.site-nav__header {
+  display: none;
+}
+
 .js-enabled .site-nav {
   visibility: hidden;
   opacity: 0;
@@ -2372,6 +2376,167 @@ body:not(.has-sticky-header) .site-header {
   .alignright {
     float: none;
     margin: 0 auto 1rem;
+  }
+}
+
+/* Present mobile navigation as a spacious, scrollable off-canvas drawer. */
+@media (max-width: 47.99rem) {
+  body.nav-open .nav-wrap::before {
+    position: fixed;
+    z-index: 69;
+    inset: 0;
+    background: rgba(5, 46, 38, 0.58);
+    content: "";
+    opacity: 1;
+    backdrop-filter: blur(3px);
+  }
+
+  body:not(.has-sticky-header) .site-header {
+    position: sticky;
+  }
+
+  .header-main {
+    min-height: max(var(--qa-header-height), 4.75rem);
+    padding-block: 0.5rem;
+  }
+
+  .menu-toggle {
+    position: relative;
+    z-index: 1;
+  }
+
+  body.nav-open .menu-toggle {
+    position: fixed;
+    z-index: 72;
+    top: calc(var(--wp-admin--admin-bar--height, 0px) + max(1rem, env(safe-area-inset-top)));
+    right: max(1rem, env(safe-area-inset-right));
+    border-color: rgba(255, 255, 255, 0.24);
+    background: var(--qa-emerald-900);
+    color: #ffffff;
+    box-shadow: 0 12px 30px rgba(5, 46, 38, 0.28);
+  }
+
+  .js-enabled .site-nav {
+    z-index: 70;
+    inset: 0 0 0 auto;
+    width: min(92vw, 26rem);
+    height: 100vh;
+    height: 100dvh;
+    padding: calc(var(--wp-admin--admin-bar--height, 0px) + max(1rem, env(safe-area-inset-top))) max(1rem, env(safe-area-inset-right)) max(1.5rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
+    border-radius: 1.25rem 0 0 1.25rem;
+    background: linear-gradient(160deg, #ffffff 0%, var(--qa-cream-50) 52%, var(--qa-emerald-50) 100%);
+    box-shadow: -18px 0 55px rgba(5, 46, 38, 0.22);
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+  }
+
+  .js-enabled .site-nav[aria-hidden="true"] {
+    pointer-events: none;
+  }
+
+  .js-enabled .site-nav.is-open,
+  .js-enabled .site-nav[aria-hidden="false"] {
+    transform: translateX(0);
+  }
+
+  .site-nav__header {
+    display: grid;
+    gap: 0.05rem;
+    min-height: 4rem;
+    align-content: center;
+    margin: -0.2rem 3.75rem 1rem 0;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid var(--qa-border);
+  }
+
+  .site-nav__header span {
+    color: var(--qa-gold-700);
+    font-size: 0.7rem;
+    font-weight: 850;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .site-nav__header strong {
+    color: var(--qa-emerald-950);
+    font-family: var(--qa-font-heading);
+    font-size: 1.55rem;
+    line-height: 1.2;
+  }
+
+  .site-nav > ul,
+  .site-nav > .menu,
+  .site-nav .menu-primary-container > ul {
+    gap: 0.45rem;
+  }
+
+  .site-nav li > a {
+    min-height: 3.25rem;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid transparent;
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.72);
+    font-size: 0.96rem;
+    box-shadow: 0 3px 12px rgba(5, 46, 38, 0.045);
+  }
+
+  .site-nav li > a:hover,
+  .site-nav li > a:focus-visible,
+  .site-nav .current-menu-item > a,
+  .site-nav .current-menu-ancestor > a,
+  .site-nav .current_page_item > a {
+    border-color: rgba(8, 114, 90, 0.18);
+  }
+
+  .site-nav .menu-item-has-children > a {
+    padding-inline-end: 3.5rem;
+  }
+
+  .submenu-toggle,
+  .dropdown-toggle {
+    top: 0.25rem;
+    right: 0.3rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid transparent;
+  }
+
+  .submenu-toggle:hover,
+  .submenu-toggle:focus-visible,
+  .dropdown-toggle:hover,
+  .dropdown-toggle:focus-visible {
+    border-color: var(--qa-gold-200);
+  }
+
+  .site-nav .sub-menu {
+    margin: 0.4rem 0 0.35rem 0.8rem;
+    padding-inline-start: 0.75rem;
+  }
+
+  .site-nav .sub-menu a {
+    min-height: 2.85rem;
+    background: rgba(240, 250, 246, 0.86);
+    box-shadow: none;
+  }
+
+  .site-nav .site-nav__contact {
+    margin-top: 1.25rem;
+    border: 1px solid rgba(8, 114, 90, 0.14);
+    background: rgba(255, 255, 255, 0.78);
+  }
+
+  body.nav-open .floating-whatsapp,
+  body.nav-open .back-to-top {
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
+  }
+}
+
+@media (max-width: 22.5rem) {
+  .js-enabled .site-nav {
+    width: 100%;
+    border-radius: 0;
   }
 }
 

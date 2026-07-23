@@ -140,6 +140,7 @@ function queen_alfalah_icon( $name, $class = '' ) {
 		'palette'      => '<path d="M12 3a9 9 0 0 0 0 18h1.5a1.5 1.5 0 0 0 0-3H12a2 2 0 0 1 0-4h4a5 5 0 0 0 0-10z"/><circle cx="7.5" cy="10" r=".7" fill="currentColor"/><circle cx="9.5" cy="6.8" r=".7" fill="currentColor"/><circle cx="14" cy="6.5" r=".7" fill="currentColor"/>',
 		'award'        => '<circle cx="12" cy="8" r="6"/><path d="m8.5 13-1.5 9 5-3 5 3-1.5-9"/>',
 		'building'     => '<path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6M8 10h.01M12 10h.01M16 10h.01"/>',
+		'folder'       => '<path d="M3 6a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
 		'external'     => '<path d="M14 3h7v7M10 14 21 3M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/>',
 		'check'        => '<path d="m5 12 4 4L19 6"/>',
 		'play'         => '<circle cx="12" cy="12" r="9"/><path d="m10 8 6 4-6 4z"/>',

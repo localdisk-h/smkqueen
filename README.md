@@ -13,6 +13,7 @@ Tema dan plugin pendamping WordPress untuk website SMK Queen Al-Falah. Project m
 - Identitas, kontak, kepala sekolah, logo, warna, dan konten yang dapat dikelola dari dashboard.
 - Berita, pengumuman, agenda, prestasi, guru/tendik, program keahlian, galeri, BKK, dan PPDB.
 - Pusat Aplikasi `/aplikasi/` untuk Ujian Online, E-Rapor, E-Perpustakaan, SPMB, dan Gamifikasi Edu.
+- Pusat Media privat `/pusat-media/` dengan akun WordPress per Waka/tim/bidang dan pembatasan folder Google Drive per pengguna.
 - Struktur ZIP tema dan plugin yang kompatibel dengan pemasang WordPress.
 - Dukungan penggunaan offline melalui WordPress dan Laragon.
 
@@ -39,6 +40,18 @@ wp-content/plugins/queen-alfalah-core
 ```
 
 Aktifkan melalui dashboard WordPress. Jangan menyimpan `wp-config.php`, database, kata sandi, atau berkas unggahan pengguna di repository.
+
+## Pusat Media privat
+
+Plugin membuat peran **Waka Sekolah**, **Tim Media**, dan **Bidang Sekolah**, serta halaman `/pusat-media/`. Password memakai autentikasi WordPress dan selalu disimpan sebagai hash oleh WordPress. Akun portal diarahkan ke Pusat Media dan tidak diberi akses ke dashboard administrasi. Administrator membuat satu akun untuk setiap personel/bidang melalui **Pengguna > Tambah Baru**, memilih peran yang sesuai, lalu mengisi nama unit dan ID folder Google Drive pada profil akun.
+
+Koneksi Google Drive memakai service account baca-saja. Aktifkan Google Drive API di Google Cloud, buat service account, bagikan setiap folder root kepada email service account sebagai **Viewer**, lalu simpan JSON kredensial di luar folder publik website. Tambahkan hanya lokasinya ke `wp-config.php`:
+
+```php
+define( 'QAF_GOOGLE_DRIVE_CREDENTIALS_PATH', '/lokasi-privat/queen-drive-service-account.json' );
+```
+
+Sebagai alternatif, JSON dapat dimasukkan melalui secret/environment deployment ke konstanta `QAF_GOOGLE_DRIVE_CREDENTIALS_JSON`. Jangan commit JSON, private key, username, atau password ke Git. Pengguna hanya dapat menelusuri folder yang dipetakan pada profilnya beserta subfolder dan file turunannya; unduhan diproksi oleh WordPress setelah pemeriksaan login, capability, nonce, dan rantai folder.
 
 ## Sinkronisasi perkembangan project
 
