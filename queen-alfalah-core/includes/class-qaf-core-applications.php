@@ -31,7 +31,7 @@ final class QAF_Core_Applications {
 			'aplikasi-e-perpus'        => array( 'Buku & E-Perpustakaan', 'book', '', 'Katalog buku, koleksi digital, serta layanan peminjaman perpustakaan sekolah.' ),
 			'aplikasi-spmb'            => array( 'SPMB', 'users', $registration_url, 'Pusat informasi dan sistem penerimaan murid baru SMK Queen Al-Falah.' ),
 			'aplikasi-gamifikasi-edu'  => array( 'Gamifikasi Edu', 'play', '', 'Pembelajaran interaktif berbasis tantangan, poin, dan aktivitas edukatif.' ),
-			'aplikasi-pusat-media'     => array( 'Pusat Media', 'folder', QAF_Core_Media_Center::portal_url(), 'Portal privat untuk dokumen Waka, Tim Media, dan seluruh bidang sekolah sesuai akun masing-masing.', false ),
+			'aplikasi-pusat-media'     => array( 'Pusat Media', 'folder', QAF_Core_Media_Center::portal_url(), 'Portal privat untuk unggah dan unduh dokumen Waka, Guru, serta Tendik pada folder Drive masing-masing.', false ),
 		);
 
 		$order = 0;

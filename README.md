@@ -13,7 +13,7 @@ Tema dan plugin pendamping WordPress untuk website SMK Queen Al-Falah. Project m
 - Identitas, kontak, kepala sekolah, logo, warna, dan konten yang dapat dikelola dari dashboard.
 - Berita, pengumuman, agenda, prestasi, guru/tendik, program keahlian, galeri, BKK, dan PPDB.
 - Pusat Aplikasi `/aplikasi/` untuk Ujian Online, E-Rapor, E-Perpustakaan, SPMB, dan Gamifikasi Edu.
-- Pusat Media privat `/pusat-media/` dengan akun WordPress per Waka/tim/bidang dan pembatasan folder Google Drive per pengguna.
+- Pusat Media privat `/pusat-media/` dengan akun WordPress per Waka/Guru/Tendik, folder Drive pribadi otomatis, serta unggah-unduh terotorisasi.
 - Struktur ZIP tema dan plugin yang kompatibel dengan pemasang WordPress.
 - Dukungan penggunaan offline melalui WordPress dan Laragon.
 
@@ -43,15 +43,24 @@ Aktifkan melalui dashboard WordPress. Jangan menyimpan `wp-config.php`, database
 
 ## Pusat Media privat
 
-Plugin membuat peran **Waka Sekolah**, **Tim Media**, dan **Bidang Sekolah**, serta halaman `/pusat-media/`. Password memakai autentikasi WordPress dan selalu disimpan sebagai hash oleh WordPress. Akun portal diarahkan ke Pusat Media dan tidak diberi akses ke dashboard administrasi. Administrator membuat satu akun untuk setiap personel/bidang melalui **Pengguna > Tambah Baru**, memilih peran yang sesuai, lalu mengisi nama unit dan ID folder Google Drive pada profil akun.
+Plugin membuat peran **Waka Sekolah**, **Guru**, dan **Tenaga Kependidikan**, serta halaman `/pusat-media/`. Password memakai autentikasi WordPress dan selalu disimpan sebagai hash oleh WordPress. Akun portal diarahkan ke Pusat Media dan tidak diberi akses ke dashboard administrasi. Folder pribadi `Nama (@username)` dibuat otomatis di Google Drive ketika akun pertama kali membuka portal.
 
-Koneksi Google Drive memakai service account baca-saja. Aktifkan Google Drive API di Google Cloud, buat service account, bagikan setiap folder root kepada email service account sebagai **Viewer**, lalu simpan JSON kredensial di luar folder publik website. Tambahkan hanya lokasinya ke `wp-config.php`:
+Folder induk Google Drive sekolah:
+
+[SMK Queen Al-Falah - Pusat Media](https://drive.google.com/drive/folders/1N0w6Y9e2p5IYn_ipLLcR7hG2ApDT2KK9)
+
+Untuk My Drive, koneksi unggah-unduh memakai OAuth akun pemilik folder. Simpan nilai berikut hanya di `wp-config.php`:
 
 ```php
-define( 'QAF_GOOGLE_DRIVE_CREDENTIALS_PATH', '/lokasi-privat/queen-drive-service-account.json' );
+define( 'QAF_GOOGLE_DRIVE_ROOT_FOLDER_ID', '1N0w6Y9e2p5IYn_ipLLcR7hG2ApDT2KK9' );
+define( 'QAF_GOOGLE_DRIVE_OAUTH_CLIENT_ID', 'CLIENT_ID.apps.googleusercontent.com' );
+define( 'QAF_GOOGLE_DRIVE_OAUTH_CLIENT_SECRET', 'CLIENT_SECRET' );
+define( 'QAF_GOOGLE_DRIVE_OAUTH_REFRESH_TOKEN', 'REFRESH_TOKEN' );
 ```
 
-Sebagai alternatif, JSON dapat dimasukkan melalui secret/environment deployment ke konstanta `QAF_GOOGLE_DRIVE_CREDENTIALS_JSON`. Jangan commit JSON, private key, username, atau password ke Git. Pengguna hanya dapat menelusuri folder yang dipetakan pada profilnya beserta subfolder dan file turunannya; unduhan diproksi oleh WordPress setelah pemeriksaan login, capability, nonce, dan rantai folder.
+Service account tetap didukung untuk Shared Drive melalui `QAF_GOOGLE_DRIVE_CREDENTIALS_PATH`. Jangan commit OAuth secret, refresh token, JSON, private key, username, atau password ke Git. Pengguna hanya dapat menelusuri folder pribadinya beserta subfolder dan file turunannya; unggahan dan unduhan diproksi WordPress setelah pemeriksaan login, capability, nonce, jenis/ukuran file, dan rantai folder.
+
+Lihat panduan lengkap di [`queen-alfalah-core/GOOGLE-DRIVE-SETUP.md`](queen-alfalah-core/GOOGLE-DRIVE-SETUP.md).
 
 ## Sinkronisasi perkembangan project
 
