@@ -1,0 +1,231 @@
+.entry-content > .qaf-media-center {
+  max-width: 75rem;
+}
+
+.qaf-media-center {
+  overflow: hidden;
+  border: 1px solid #d8e0dc;
+  border-radius: 1.4rem;
+  background: #fffdf8;
+  color: #17231f;
+  box-shadow: 0 20px 60px rgba(5, 46, 38, 0.12);
+}
+
+.qaf-media-hero {
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+  background: linear-gradient(135deg, #052e26, #08725a);
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.qaf-media-hero h2 {
+  margin: 0.15rem 0 0.55rem;
+  color: #fff;
+  font-size: clamp(1.85rem, 5vw, 3rem);
+}
+
+.qaf-media-hero p {
+  max-width: 46rem;
+  margin: 0;
+}
+
+.qaf-media-eyebrow {
+  color: #e6b84d;
+  font-size: 0.74rem;
+  font-weight: 850;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.qaf-media-login,
+.qaf-media-notice,
+.qaf-media-account,
+.qaf-media-breadcrumb,
+.qaf-media-grid {
+  margin: clamp(1rem, 3vw, 2rem);
+}
+
+.qaf-media-login {
+  max-width: 34rem;
+  margin-inline: auto;
+  padding: clamp(1.25rem, 4vw, 2rem);
+  border: 1px solid #d8e0dc;
+  border-radius: 1rem;
+  background: #fff;
+}
+
+.qaf-media-login h3 {
+  margin-top: 0;
+}
+
+.qaf-media-login label {
+  font-weight: 750;
+}
+
+.qaf-media-login input[type="text"],
+.qaf-media-login input[type="password"] {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid #b8c7c1;
+  border-radius: 0.6rem;
+}
+
+.qaf-media-login input[type="submit"] {
+  min-height: 3rem;
+  padding-inline: 1.25rem;
+  border: 0;
+  border-radius: 999px;
+  background: #08725a;
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.qaf-media-login__help {
+  margin-bottom: 0;
+  font-size: 0.84rem;
+}
+
+.qaf-media-account {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid #d8e0dc;
+  border-radius: 0.9rem;
+  background: #f0faf6;
+}
+
+.qaf-media-account div {
+  display: grid;
+  gap: 0.05rem;
+}
+
+.qaf-media-account span,
+.qaf-media-account small {
+  color: #5a6863;
+  font-size: 0.78rem;
+}
+
+.qaf-media-account a,
+.qaf-media-item__action {
+  display: inline-flex;
+  min-height: 2.6rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 0.95rem;
+  border-radius: 999px;
+  background: #08725a;
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.qaf-media-notice {
+  padding: 1rem 1.15rem;
+  border-inline-start: 0.3rem solid #08725a;
+  border-radius: 0 0.7rem 0.7rem 0;
+  background: #f0faf6;
+}
+
+.qaf-media-notice--error {
+  border-inline-start-color: #a82c2c;
+  background: #fff2ef;
+}
+
+.qaf-media-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  color: #5a6863;
+  font-size: 0.86rem;
+}
+
+.qaf-media-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.qaf-media-item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid #d8e0dc;
+  border-radius: 0.9rem;
+  background: #fff;
+  box-shadow: 0 5px 18px rgba(5, 46, 38, 0.055);
+}
+
+.qaf-media-item--folder {
+  border-color: #eed99e;
+  background: #fffaf0;
+}
+
+.qaf-media-item__icon {
+  display: grid;
+  width: 2.8rem;
+  height: 2.8rem;
+  place-items: center;
+  border-radius: 0.75rem;
+  background: #f0faf6;
+  font-size: 1.45rem;
+}
+
+.qaf-media-item__body {
+  min-width: 0;
+}
+
+.qaf-media-item h3 {
+  overflow: hidden;
+  margin: 0;
+  font-family: inherit;
+  font-size: 0.96rem;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.qaf-media-item p {
+  margin: 0.22rem 0 0;
+  color: #5a6863;
+  font-size: 0.72rem;
+}
+
+.qaf-media-empty {
+  display: grid;
+  grid-column: 1 / -1;
+  gap: 0.2rem;
+  padding: 2.5rem 1rem;
+  border: 1px dashed #b8c7c1;
+  border-radius: 0.9rem;
+  color: #5a6863;
+  text-align: center;
+}
+
+@media (max-width: 48rem) {
+  .qaf-media-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 31rem) {
+  .qaf-media-account {
+    align-items: flex-start;
+  }
+
+  .qaf-media-item {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .qaf-media-item__action {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+}

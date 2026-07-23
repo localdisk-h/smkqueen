@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 final class QAF_Core_Applications {
 	const VERSION_OPTION = 'qaf_applications_schema_version';
-	const SCHEMA_VERSION = '1.0.0';
+	const SCHEMA_VERSION = '1.1.0';
 
 	/** Attach the safe, idempotent upgrade routine. */
 	public static function init() {
@@ -31,6 +31,7 @@ final class QAF_Core_Applications {
 			'aplikasi-e-perpus'        => array( 'Buku & E-Perpustakaan', 'book', '', 'Katalog buku, koleksi digital, serta layanan peminjaman perpustakaan sekolah.' ),
 			'aplikasi-spmb'            => array( 'SPMB', 'users', $registration_url, 'Pusat informasi dan sistem penerimaan murid baru SMK Queen Al-Falah.' ),
 			'aplikasi-gamifikasi-edu'  => array( 'Gamifikasi Edu', 'play', '', 'Pembelajaran interaktif berbasis tantangan, poin, dan aktivitas edukatif.' ),
+			'aplikasi-pusat-media'     => array( 'Pusat Media', 'folder', QAF_Core_Media_Center::portal_url(), 'Portal privat untuk dokumen Waka, Tim Media, dan seluruh bidang sekolah sesuai akun masing-masing.', false ),
 		);
 
 		$order = 0;
@@ -55,7 +56,7 @@ final class QAF_Core_Applications {
 					'meta_input'     => array(
 						'_qaf_external_url'   => esc_url_raw( $application[2] ),
 						'_qaf_icon_name'      => $application[1],
-						'_qaf_open_new'       => true,
+						'_qaf_open_new'       => isset( $application[4] ) ? (bool) $application[4] : true,
 						'_qaf_service_status' => $application[2] ? 'active' : 'inactive',
 					),
 				),
@@ -67,4 +68,3 @@ final class QAF_Core_Applications {
 		flush_rewrite_rules( false );
 	}
 }
-
